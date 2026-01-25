@@ -15,14 +15,20 @@ Every non-number expression looks like this:
 }
 ~~~
 The type can be one of the following:
-`const`
-`sum`
-`product`
-`reciprocal`
+
+`const`<br/>
+`sum`<br/>
+`product`<br/>
+`reciprocal`<br/>
+`floor`<br/>
+`ceil`<br/>
+`switch`<br/>
+`compare`<br/>
 `variable`
+
 Always a string, *never an expression*.
 Each one will be explained in detail later. (though it's probably unnecessary)
-The `val` type, however, is usually an expression. The only exception is `variable`, in which it's a string.
+The `val` type, however, is usually an expression (or list of expressions). The only exception is `variable`, in which it's a string.
 
 ## Types
 
@@ -36,7 +42,7 @@ Ex:
     "val":5.0
 }
 ~~~
- |
+ &#124;<br/>
  v
 ~~~
 5.0
@@ -58,7 +64,7 @@ Ex:
     ]
 }
 ~~~
- &#124;
+ &#124;<br/>
  v
 ~~~
 14.0
@@ -84,10 +90,62 @@ Can be used with `product` to perform divison.
     ]
 }
 ~~~
- &#124;
+ &#124;<br/>
  v
 ~~~
 5.0
+~~~
+`floor`:
+Gives the floor.
+~~~
+{
+    "type":"floor",
+    "val":3.5
+}
+~~~
+ &#124;<br/>
+ v
+~~~
+3
+~~~
+`ceiling`:
+Self-explanatory.
+`switch`:
+Gives the val[1]+2th item in the list. If not there, gives val[2]
+~~~
+{
+    "type":"switch",
+    "val":[
+        2,   <-- selector
+        4,
+        7,
+        8,
+        9
+    ]
+}
+~~~
+ &#124;<br/>
+ v
+~~~
+8
+~~~
+and
+~~~
+{
+    "type":"switch",
+    "val":[
+        7000,
+        4,
+        7,
+        8,
+        9
+    ]
+}
+~~~
+ &#124;<br/>
+ v
+~~~
+4
 ~~~
 `variable`:
 This one is special. `val` *is not an expression*. It is instead a string.
@@ -110,15 +168,15 @@ Then:
     ]
 }
 ~~~
- &#124;
+ &#124;<br/>
  v
 ~~~
 8
 ~~~
 
+#
 
-
-
-
+version 1.1:
+Added floor, ceil, switch, and comp
 
 
