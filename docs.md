@@ -212,7 +212,7 @@ Normal distribution. `[mean, std dev]`
 
 version 1.2:<br/>
 Added uniform and normal, and added docs for comp<br/>
-(for some reason it wasn't in there before)
+(for some reason it wasn't in there before)<br/>
 version 1.1:<br/>
 Added floor, ceil, switch, and comp
 
