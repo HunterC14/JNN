@@ -16,19 +16,23 @@ Every non-number expression looks like this:
 ~~~
 The type can be one of the following:
 
-`const`<br/>
+`const`/`constant`<br/>
 `sum`<br/>
-`product`<br/>
-`reciprocal`<br/>
+`product`/`prod`<br/>
+`reciprocal`/`recip`/`inv`<br/>
 `floor`<br/>
-`ceil`<br/>
-`switch`<br/>
-`compare`<br/>
-`variable`
+`ceiling`/`ceil`<br/>
+`switch`/`match`<br/>
+`compare`/`comp`<br/>
+`variable`/`var`<br/>
+`uniform`/`rng`<br/>
+`normal`/`gauss`
 
 Always a string, *never an expression*.
 Each one will be explained in detail later. (though it's probably unnecessary)
 The `val` type, however, is usually an expression (or list of expressions). The only exception is `variable`, in which it's a string.
+
+Everything except for `uniform` and `normal` are deterministic.
 
 ## Types
 
@@ -109,7 +113,7 @@ Gives the floor.
 3
 ~~~
 `ceiling`:
-Self-explanatory.
+Self-explanatory.<br/>
 `switch`:
 Gives the val[1]+2th item in the list. If not there, gives val[2]
 ~~~
@@ -147,6 +151,28 @@ and
 ~~~
 4
 ~~~
+`compare`:
+Compares 2 numbers. First 2 numbers are the ones being compared, last 3 are for what the output is.
+If v1 > v2: output v3
+v1 < v2: v4
+v1 = v2: v5
+~~~
+{
+    "type":"compare",
+    "val":[
+        5,
+        7,
+        3,
+        9,
+        1
+    ]
+}
+~~~
+ |<br/>
+ v
+~~~
+9
+~~~
 `variable`:
 This one is special. `val` *is not an expression*. It is instead a string.
 This is the only way to access things outside the expression, and for it to not be a constant value.
@@ -173,10 +199,21 @@ Then:
 ~~~
 8
 ~~~
-
+`uniform`:
+Uniform random [0,1)
+~~~
+{
+    "type":"uniform"
+}
+~~~
+`normal`:
+Normal distribution. `[mean, std dev]`
 #
 
-version 1.1:
+version 1.2:<br/>
+Added uniform and normal, and added docs for comp<br/>
+(for some reason it wasn't in there before)
+version 1.1:<br/>
 Added floor, ceil, switch, and comp
 
 

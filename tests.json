@@ -1,0 +1,83 @@
+[
+    [
+        {
+            "type":"const",
+            "val":5.3
+        }, 5.3, {}
+    ],
+    [
+        {
+            "type":"sum",
+            "val":[
+                5, 3.0
+            ]
+        }, 8.0, {}
+    ],
+    [
+        {
+            "type":"prod",
+            "val":[
+                5, 3.0
+            ]
+        }, 15.0, {}
+    ],
+    [
+        {
+            "type":"inv",
+            "val":5
+        }, 0.2, {}
+    ],
+    [
+        {
+            "type":"floor",
+            "val":1.1
+        }, 1, {}
+    ],
+    [
+        {
+            "type":"ceil",
+            "val":1.1
+        }, 2, {}
+    ],
+    [
+        {
+            "type":"switch",
+            "val":[2, 4, 7, 8, 9]
+        }, 8, {"a":1}
+    ],
+    [
+        {
+            "type":"switch",
+            "val":[1.1,4,7,8,9]
+        }, 4, {}
+    ],
+    [
+        {
+            "type":"switch",
+            "val":[3.0, 4, 7, 8, 9]
+        }, 9, {}
+    ],
+    [
+        {
+            "type":"comp",
+            "val":[5,7,2,8,1]
+        }, 8, {}
+    ],
+    [
+        {
+            "type":"var",
+            "val":"abc"
+        }, 2, {"abc":2,"var":1}
+    ],
+    [
+        {
+            "type":"comp",
+            "val":[
+                {
+                    "type":"uniform",
+                    "#":"I couldn't really test this so I did a check for < 1"
+                }, 1, 7, 8, 9
+            ]
+        }, 8, {}
+    ]
+]
